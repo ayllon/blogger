@@ -1,0 +1,39 @@
+html {
+    font-family: "Times New Roman";
+}
+
+body {
+    padding: 1em;
+}
+
+/* index.template.html */
+#summary-table td,th {
+    padding-left: 1em;
+}
+
+#summary-table thead tr th:first-child {
+    text-align: left;
+}
+
+#summary-table thead tr th:nth-child(3) {
+    text-align: right;
+}
+
+#summary-table thead tr th:nth-child(4) {
+    text-align: left;
+}
+
+#summary-table tbody tr td:nth-child(3) {
+    text-align: right;
+}
+
+/* post.template.html */
+span.date {
+    font-size: 70%;
+    font-weight: normal;
+    color: #666666;
+}
+
+div.comment p {
+    margin-left: 2em;
+}

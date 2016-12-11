@@ -1,0 +1,33 @@
+#encoding utf-8
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <link rel="stylesheet" href="style.css"/>
+        <title>$title</title>
+    </head>
+    <body>
+        <h1>$title</h1>
+        <table id="summary-table">
+            <thead>
+                <tr>
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                    <th>Comentarios</th>
+                    <th>Título</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $post in $posts
+                <tr>
+                    <td>$post.author.name</td>
+                    <td>
+                        <a href="$post.filename()">$post.published</a>
+                    </td>
+                    <td>$post.comment_count()</td>
+                    <td>$post.title</td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    </body>
+</html>
