@@ -155,7 +155,10 @@ class Post(object):
     def store(self, outdir):
         self._prepare_local(os.path.join(outdir, 'images'))
         html = os.path.join(outdir, self.filename())
-        template = Template(file='post.template.html', searchList=[self])
+        template = Template(
+            file=os.path.join(os.path.dirname(__file__), 'post.template.html'),
+            searchList=[self]
+        )
         with open(html, 'wct') as fd:
             fd.write(str(template))
 
@@ -212,10 +215,13 @@ class Blog(object):
         """
         Generar el index.html
         """
-        template = Template(file='index.template.html', searchList=[dict(
-            title=self.title,
-            posts=sorted(self.posts.values(), key=lambda p: p.published)
-        )])
+        template = Template(
+            file=os.path.join(os.path.dirname(__file__), 'index.template.html'),
+            searchList=[dict(
+                title=self.title,
+                posts=sorted(self.posts.values(), key=lambda p: p.published)
+            )]
+        )
 
         index = os.path.join(outdir, 'index.html')
         with open(index, 'wct') as fd:
